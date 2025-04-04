@@ -6,6 +6,8 @@ public class Reservation {
     private int numeroReservation;
     private LocalDate dateReservation;
     private String statut;
+    private Vol vol;
+    private Passager passager;
 
     public Reservation(int numeroReservation, LocalDate dateReservation, String statut) {
         this.numeroReservation = numeroReservation;
@@ -47,5 +49,18 @@ public class Reservation {
 
     public void setStatut(String statut) {
         this.statut = statut;
+    }
+
+    public Vol getVol() {
+        return vol;
+    }
+    public void setVol(Vol vol) {
+        this.vol = vol;
+    }
+    public Passager getPassager() {
+        return passager;
+    }
+    public void setPassager(Passager passager) {
+        this.passager = passager;
     }
 }
