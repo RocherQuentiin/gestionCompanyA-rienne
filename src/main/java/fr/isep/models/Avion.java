@@ -20,5 +20,37 @@ public class Avion {
         return true;
     }
 
-    // Getters and Setters
+    public String getImmatriculation() {
+        return immatriculation;
+    }
+
+    public void setImmatriculation(String immatriculation) {
+        this.immatriculation = immatriculation;
+    }
+
+    public String getModele() {
+        return modele;
+    }
+
+    public void setModele(String modele) {
+        this.modele = modele;
+    }
+
+    public int getCapacite() {
+        return capacite;
+    }
+
+    public void setCapacite(int capacite) {
+        this.capacite = capacite;
+    }
+
+    @Override
+    public String toString() {
+        return "Avion{" +
+                "immatriculation='" + immatriculation + '\'' +
+                ", modele='" + modele + '\'' +
+                ", capacite=" + capacite +
+                '}';
+    }
+
 }

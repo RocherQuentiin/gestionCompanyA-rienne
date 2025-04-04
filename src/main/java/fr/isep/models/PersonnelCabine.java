@@ -1,9 +1,12 @@
 package fr.isep.models;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class PersonnelCabine extends Employe {
     private String qualification;
 
-    public PersonnelCabine(int identifiant, String nom, String adresse, String contact, int numeroEmploye, String dateEmbauche, String qualification) {
+    public PersonnelCabine(int identifiant, String nom, Adresse adresse, String contact, int numeroEmploye, LocalDate dateEmbauche, String qualification) {
         super(identifiant, nom, adresse, contact, numeroEmploye, dateEmbauche);
         this.qualification = qualification;
     }
@@ -21,5 +24,12 @@ public class PersonnelCabine extends Employe {
         System.out.println("Liste des vols du personnel cabine.");
     }
 
-    // Getters and Setters
+
+    public String getQualification() {
+        return qualification;
+    }
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
+    }
 }
