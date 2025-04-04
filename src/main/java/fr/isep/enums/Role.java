@@ -15,7 +15,7 @@ package fr.isep.enums;
  *   - {@link #fromId(int)} : Retourne le métier correspondant à un identifiant donné,
  *       ou AUTRE si aucun métier ne correspond.
  */
-public enum Metier {
+public enum Role {
     PILOTE(1),
     PERSONNEL_CABINE(2),
     PASSAGER(3),
@@ -23,7 +23,7 @@ public enum Metier {
 
     private final int id;
 
-    Metier(int id) {
+    Role(int id) {
         this.id = id;
     }
 
@@ -31,8 +31,8 @@ public enum Metier {
         return id;
     }
 
-    public static Metier fromId(int id) {
-        for (Metier metier : values()) {
+    public static Role fromId(int id) {
+        for (Role metier : values()) {
             if (metier.getId() == id) {
                 return metier;
             }

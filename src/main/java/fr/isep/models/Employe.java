@@ -12,9 +12,6 @@ public class Employe extends Personne {
         this.dateEmbauche = dateEmbauche;
     }
 
-    public String obtenirRole() {
-        return "Employé";
-    }
 
     public int getNumeroEmploye() {
         return numeroEmploye;

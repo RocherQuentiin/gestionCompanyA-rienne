@@ -1,19 +1,20 @@
 package fr.isep.models;
 
 import java.time.LocalDate;
-import java.util.Date;
+
+import fr.isep.enums.Role;
 
 public class PersonnelCabine extends Employe {
     private String qualification;
 
-    public PersonnelCabine(int identifiant, String nom, Adresse adresse, String contact, int numeroEmploye, LocalDate dateEmbauche, String qualification) {
-        super(identifiant, nom, adresse, contact, numeroEmploye, dateEmbauche);
-        this.qualification = qualification;
+    public PersonnelCabine(String nom, Adresse adresse, String contact, int numeroEmploye, LocalDate dateEmbauche, String qualification) {
+        super(Role.PERSONNEL_CABINE.getId(), nom, adresse, contact, numeroEmploye, dateEmbauche); // Identifiant pour Personnel Cabine
+        this.qualification = qualification; // Valeur par défaut
     }
 
     @Override
     public String obtenirRole() {
-        return "Personnel Cabine";
+        return Role.PERSONNEL_CABINE.name();
     }
 
     public void affecterVol() {
