@@ -4,10 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import fr.isep.models.Adresse;
+import fr.isep.models.Aeroport;
 import fr.isep.models.Passager;
 import fr.isep.models.PersonnelCabine;
 import fr.isep.models.Pilote;
-
+import fr.isep.models.Vol;
 public class TestAppli {
 
     // Test pour la gestion des personnes
@@ -73,8 +74,16 @@ public class TestAppli {
     @Test
     public void testAffecterVol() {
         // Simuler l'affectation d'un équipage à un vol
-        boolean assignmentSuccess = true;
-        assertTrue(assignmentSuccess, "L'affectation de l'équipage au vol doit réussir");
+        Pilote pilote = new Pilote("Jean Dupont", new Adresse(10, "Rue de Paris", 75000, "Paris"), "0123456789", 101, java.time.LocalDate.of(2020, 1, 15), "Captain", 4.5f);
+        PersonnelCabine personnelCabine = new PersonnelCabine("Marie Curie", new Adresse(20, "Avenue des Champs", 75008, "Paris"), "0987654321", 102, java.time.LocalDate.of(2021, 5, 10), "Cabin Crew");
+        Aeroport origine = new Aeroport("Charles de Gaulle", "Paris", "Aéroport principal");
+        Aeroport destination = new Aeroport("JFK", "New York", "Aéroport international");
+        Vol vol = new Vol(123, origine, destination, 
+                java.time.LocalDateTime.parse("2025-04-10T10:00"), 
+                java.time.LocalDateTime.parse("2025-04-10T14:00"), 
+                "Planifié");
+        pilote.affecterVol(vol);
+        personnelCabine.affecterVol(vol); // Utilise la méthode héritée de la classe Employe  
     }
 
     @Test
