@@ -1,11 +1,13 @@
 package fr.isep.models;
 
+import java.time.LocalDate;
+
 public class Reservation {
     private int numeroReservation;
-    private String dateReservation;
+    private LocalDate dateReservation;
     private String statut;
 
-    public Reservation(int numeroReservation, String dateReservation, String statut) {
+    public Reservation(int numeroReservation, LocalDate dateReservation, String statut) {
         this.numeroReservation = numeroReservation;
         this.dateReservation = dateReservation;
         this.statut = statut;
@@ -23,5 +25,27 @@ public class Reservation {
         System.out.println("Réservation modifiée.");
     }
 
-    // Getters and Setters
+    public int getNumeroReservation() {
+        return numeroReservation;
+    }
+
+    public void setNumeroReservation(int numeroReservation) {
+        this.numeroReservation = numeroReservation;
+    }
+
+    public LocalDate getDateReservation() {
+        return dateReservation;
+    }
+
+    public void setDateReservation(LocalDate dateReservation) {
+        this.dateReservation = dateReservation;
+    }
+
+    public String getStatut() {
+        return statut;
+    }
+
+    public void setStatut(String statut) {
+        this.statut = statut;
+    }
 }
