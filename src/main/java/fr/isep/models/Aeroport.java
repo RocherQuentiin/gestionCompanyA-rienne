@@ -1,5 +1,6 @@
 package fr.isep.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Aeroport {
@@ -16,7 +17,9 @@ public class Aeroport {
     }
 
     public void affecterVol() {
-        System.out.println("Vol affecté à l'aéroport.");
+        if (vol != null && !employe.isEmpty()) {
+            this.vol.setPersonnes(vol.getPersonnes());
+        }
     }
 
     public String getVille() {

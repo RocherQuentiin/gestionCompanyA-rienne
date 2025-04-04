@@ -3,6 +3,7 @@ package fr.isep;
 import fr.isep.models.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import java.time.LocalDate;
 
@@ -21,19 +22,24 @@ public class Main {
         Aeroport destination = new Aeroport("JFK", "New York", "Aéroport américain");
 
 
-        Avion avion1 = new Avion("Airbus A350", "280", 25);
-
         Employe e1 = new Employe(1, "Alice Dupont", adresse, "alice@aeroport.fr", 1001, LocalDate.of(2020, 5, 10));
         Employe e2 = new Employe(2, "Bob Martin", adresse, "bob@aeroport.fr", 1002, LocalDate.of(2021, 3, 15));
 
-        Vol vol = new Vol(787,origine,destination, "2024-05-05", "2025-04-04", "dispo" );
+        Vol vol = new Vol(787,origine,destination, LocalDateTime.of(2025, 5, 1, 14, 30), LocalDateTime.of(2025, 5, 1, 14, 30), "dispo" );
         Reservation res = new Reservation(123,  LocalDate.parse("2025-04-04"), "dispo", vol, passager);
         Reservation res2 = new Reservation(123,  LocalDate.parse("2025-04-04"), "confirmé", vol, passager);
+        Vol vol2 = new Vol(787,origine,destination, null, null, "dispo" );
+
+        Avion avion1 = new Avion("Airbus A350", "280", 25);
+        avion1.setVol(vol2);
 
         res.confirmerReservation();
         res2.annulerReservation();
-        System.out.println(passager.getReservations());
 
+        avion1.affecterVol(vol);
+        System.out.println(vol.getAvion());
+
+        vol2.annulerVol();
 
         Adresse adresse = new Adresse(10, "Rue de Paris", 75000, "Paris");
 
