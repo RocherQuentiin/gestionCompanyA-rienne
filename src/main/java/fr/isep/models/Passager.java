@@ -7,7 +7,7 @@ public class Passager extends Personne {
     private String passeport;
     private List<Reservation> reservations;
 
-    public Passager(int identifiant, String nom, String adresse, String contact, String passeport) {
+    public Passager(int identifiant, String nom, Adresse adresse, String contact, String passeport) {
         super(identifiant, nom, adresse, contact);
         this.passeport = passeport;
         this.reservations = new ArrayList<>();
@@ -27,5 +27,20 @@ public class Passager extends Personne {
         reservations.forEach(System.out::println);
     }
 
-    // Getters and Setters
+    public String getPasseport() {
+        return passeport;
+    }
+
+    public void setPasseport(String passeport) {
+        this.passeport = passeport;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
 }
