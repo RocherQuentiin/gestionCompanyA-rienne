@@ -16,6 +16,7 @@ public class TestAppli {
         // Simuler l'obtention des informations d'une personne
         String infos = "Nom: John Doe, Age: 30, Adresse: 123 Rue Exemple";
         assertNotNull(infos, "Les informations de la personne ne doivent pas être nulles");
+        assertEquals(infos, "John Doe", infos.trim());
     }
 
     @Test

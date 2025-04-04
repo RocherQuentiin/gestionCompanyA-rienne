@@ -3,9 +3,11 @@ package fr.isep;
 import java.time.LocalDate;
 
 import fr.isep.models.Adresse;
+import fr.isep.models.Aeroport;
 import fr.isep.models.Passager;
 import fr.isep.models.PersonnelCabine;
 import fr.isep.models.Pilote;
+import fr.isep.models.Vol;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,5 +24,15 @@ public class Main {
         // Création d'un passager
         Passager passager = new Passager("John Doe", adresse, "0765432109", "AB123456");
         passager.obtenirInfos(); // Affichera : Métier: Passager
+
+        Aeroport origine = new Aeroport("Charles de Gaulle", "Paris", "Aéroport principal");
+        Aeroport destination = new Aeroport("JFK", "New York", "Aéroport international");
+        Vol vol = new Vol(123, origine, destination, 
+                java.time.LocalDateTime.parse("2025-04-10T10:00"), 
+                java.time.LocalDateTime.parse("2025-04-10T14:00"), 
+                "Planifié");
+
+        pilote.affecterVol(vol); // Utilise la méthode héritée de la classe Employe
+        pilote.obtenirVol();     // Affiche les vols affectés au pilote
     }
 }

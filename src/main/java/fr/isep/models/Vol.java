@@ -1,5 +1,6 @@
 package fr.isep.models;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,14 +8,14 @@ public class Vol {
     private int numeroVol;
     private Aeroport origine;
     private Aeroport destination;
-    private String dateHeureDepart;
-    private String dateHeureArrivee;
+    private LocalDateTime dateHeureDepart;
+    private LocalDateTime dateHeureArrivee;
     private String etat;
     private List<Personne> personnes;
     private List<Reservation> reservations;
     private Avion avion;
 
-    public Vol(int numeroVol, Aeroport origine, Aeroport destination, String dateHeureDepart, String dateHeureArrivee, String etat) {
+    public Vol(int numeroVol, Aeroport origine, Aeroport destination, LocalDateTime dateHeureDepart, LocalDateTime dateHeureArrivee, String etat) {
         this.numeroVol = numeroVol;
         this.origine = origine;
         this.destination = destination;
@@ -35,10 +36,6 @@ public class Vol {
 
     public void modifierVol() {
         System.out.println("Vol modifié.");
-    }
-
-    public void listingPassager() {
-        passagers.forEach(System.out::println);
     }
 
     public int getNumeroVol() {
@@ -65,19 +62,19 @@ public class Vol {
         this.destination = destination;
     }
 
-    public String getDateHeureDepart() {
+    public LocalDateTime getDateHeureDepart() {
         return dateHeureDepart;
     }
 
-    public void setDateHeureDepart(String dateHeureDepart) {
+    public void setDateHeureDepart(LocalDateTime dateHeureDepart) {
         this.dateHeureDepart = dateHeureDepart;
     }
 
-    public String getDateHeureArrivee() {
+    public LocalDateTime getDateHeureArrivee() {
         return dateHeureArrivee;
     }
 
-    public void setDateHeureArrivee(String dateHeureArrivee) {
+    public void setDateHeureArrivee(LocalDateTime dateHeureArrivee) {
         this.dateHeureArrivee = dateHeureArrivee;
     }
 
