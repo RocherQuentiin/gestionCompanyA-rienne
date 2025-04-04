@@ -1,17 +1,15 @@
 package fr.isep;
 
-import fr.isep.models.*;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import java.time.LocalDate;
-
 import fr.isep.models.Adresse;
 import fr.isep.models.Aeroport;
+import fr.isep.models.Avion;
 import fr.isep.models.Passager;
 import fr.isep.models.PersonnelCabine;
 import fr.isep.models.Pilote;
+import fr.isep.models.Reservation;
 import fr.isep.models.Vol;
 
 public class Main {
@@ -24,8 +22,6 @@ public class Main {
         Aeroport destination = new Aeroport("JFK", "New York", "Aéroport américain");
 
 
-        Employe e1 = new Employe(1, "Alice Dupont", adresse, "alice@aeroport.fr", 1001, LocalDate.of(2020, 5, 10));
-        Employe e2 = new Employe(2, "Bob Martin", adresse, "bob@aeroport.fr", 1002, LocalDate.of(2021, 3, 15));
 
         Vol vol = new Vol(787,origine,destination, LocalDateTime.of(2025, 5, 1, 14, 30), LocalDateTime.of(2025, 5, 1, 14, 30), "dispo" );
         Reservation res = new Reservation(123,  LocalDate.parse("2025-04-04"), "dispo", vol, passager);
@@ -54,17 +50,17 @@ public class Main {
         personnelCabine.obtenirInfos(); // Affichera : Métier: Personnel Cabine
 
         // Création d'un passager
-        Passager passager = new Passager("John Doe", adresse, "0765432109", "AB123456");
-        passager.obtenirInfos(); // Affichera : Métier: Passager
+        Passager passager2 = new Passager("John Doe", adresse, "0765432109", "AB123456");
+        passager2.obtenirInfos(); // Affichera : Métier: Passager
 
-        Aeroport origine = new Aeroport("Charles de Gaulle", "Paris", "Aéroport principal");
-        Aeroport destination = new Aeroport("JFK", "New York", "Aéroport international");
-        Vol vol = new Vol(123, origine, destination,
+        Aeroport origine2 = new Aeroport("Charles de Gaulle", "Paris", "Aéroport principal");
+        Aeroport destination2 = new Aeroport("JFK", "New York", "Aéroport international");
+        Vol vol3 = new Vol(123, origine2, destination2,
                 java.time.LocalDateTime.parse("2025-04-10T10:00"),
                 java.time.LocalDateTime.parse("2025-04-10T14:00"),
                 "Planifié");
 
-        pilote.affecterVol(vol); // Utilise la méthode héritée de la classe Employe
+        pilote.affecterVol(vol3); // Utilise la méthode héritée de la classe Employe
         pilote.obtenirVol();     // Affiche les vols affectés au pilote
         Passager passager1 = new Passager("John Doe", adresse2, "0765432109", "AB123456");
         passager1.obtenirInfos(); // Affichera : Métier: Passager
