@@ -1,6 +1,7 @@
 package fr.isep.models;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import fr.isep.enums.Role;
 
@@ -8,8 +9,18 @@ public class PersonnelCabine extends Employe {
     private String qualification;
 
     public PersonnelCabine(String nom, Adresse adresse, String contact, int numeroEmploye, LocalDate dateEmbauche, String qualification) {
-        super(Role.PERSONNEL_CABINE.getId(), nom, adresse, contact, numeroEmploye, dateEmbauche); // Identifiant pour Personnel Cabine
+        super(Role.PERSONNEL_CABINE.getId(), nom, adresse, contact, numeroEmploye, dateEmbauche, null); // Identifiant pour Personnel Cabine
         this.qualification = qualification; // Valeur par défaut
+    }
+
+    public PersonnelCabine(String nom, Adresse adresse, String contact, int numeroEmploye, LocalDate dateEmbauche, String qualification, List<Vol> vols) {
+        super(Role.PERSONNEL_CABINE.getId(), nom, adresse, contact, numeroEmploye, dateEmbauche, vols); // Identifiant pour Personnel Cabine
+        this.qualification = qualification; // Valeur par défaut
+    }
+
+    public void affecterVol(Vol vol) {
+        super.ajouterVol(vol);
+        System.out.println("Vol affecté au personnel cabine.");
     }
 
     @Override

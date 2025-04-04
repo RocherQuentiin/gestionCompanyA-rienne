@@ -1,5 +1,6 @@
 package fr.isep.models;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,14 +8,14 @@ public class Vol {
     private int numeroVol;
     private Aeroport origine;
     private Aeroport destination;
-    private String dateHeureDepart;
-    private String dateHeureArrivee;
+    private LocalDateTime dateHeureDepart;
+    private LocalDateTime dateHeureArrivee;
     private String etat;
     private List<Personne> personnes;
     private List<Reservation> reservations;
     private Avion avion;
 
-    public Vol(int numeroVol, Aeroport origine, Aeroport destination, String dateHeureDepart, String dateHeureArrivee, String etat) {
+    public Vol(int numeroVol, Aeroport origine, Aeroport destination, LocalDateTime dateHeureDepart, LocalDateTime dateHeureArrivee, String etat) {
         this.numeroVol = numeroVol;
         this.origine = origine;
         this.destination = destination;
@@ -25,20 +26,33 @@ public class Vol {
         this.reservations = new ArrayList<>();
     }
 
-    public void planifierVol() {
-        System.out.println("Vol planifié.");
+    public void planifierVol(int numeroVol, Aeroport origine, Aeroport destination, LocalDateTime dateHeureDepart, LocalDateTime dateHeureArrivee, String etat) {
+        this.numeroVol = numeroVol;
+        this.origine = origine;
+        this.destination = destination;
+        this.dateHeureDepart = dateHeureDepart;
+        this.dateHeureArrivee = dateHeureArrivee;
+        this.etat = etat;
     }
 
     public void annulerVol() {
-        System.out.println("Vol annulé.");
+        this.etat = "disponible";
+        this.reservations.clear();
+        this.personnes.clear();
+        System.out.println("Le vol est bien annulé");
     }
 
-    public void modifierVol() {
-        System.out.println("Vol modifié.");
+    public void modifierVol(Aeroport origine,Aeroport destination,  LocalDateTime DateHeureDepart, LocalDateTime DateHeureArrivee) {
+        this.origine = origine;
+        this.destination = destination;
+        this.dateHeureDepart = DateHeureDepart;
+        this.dateHeureArrivee = DateHeureArrivee;
     }
 
-    public void listingPassager() {
-        passagers.forEach(System.out::println);
+    public void listingPersonne() {
+        for (Personne personne : personnes) {
+            System.out.println(personne);
+        }
     }
 
     public int getNumeroVol() {
@@ -65,19 +79,19 @@ public class Vol {
         this.destination = destination;
     }
 
-    public String getDateHeureDepart() {
+    public LocalDateTime getDateHeureDepart() {
         return dateHeureDepart;
     }
 
-    public void setDateHeureDepart(String dateHeureDepart) {
+    public void setDateHeureDepart(LocalDateTime dateHeureDepart) {
         this.dateHeureDepart = dateHeureDepart;
     }
 
-    public String getDateHeureArrivee() {
+    public LocalDateTime getDateHeureArrivee() {
         return dateHeureArrivee;
     }
 
-    public void setDateHeureArrivee(String dateHeureArrivee) {
+    public void setDateHeureArrivee(LocalDateTime dateHeureArrivee) {
         this.dateHeureArrivee = dateHeureArrivee;
     }
 
