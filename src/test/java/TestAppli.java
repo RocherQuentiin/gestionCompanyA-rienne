@@ -12,7 +12,7 @@ import fr.isep.models.Vol;
 public class TestAppli {
 
     // Test pour la gestion des personnes
-    @Test
+    @org.junit.jupiter.api.Test
     public void testObtenirInfos() {
         // Simuler l'obtention des informations d'une personne
         String infos = "Nom: John Doe, Age: 30, Adresse: 123 Rue Exemple";
@@ -20,7 +20,7 @@ public class TestAppli {
         assertEquals(infos, "John Doe", infos.trim());
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void testObtenirRole() {
         // Simuler l'obtention du rôle d'un employé par ID
         Adresse adresse = new Adresse(10, "Rue de Paris", 75000, "Paris");
@@ -78,12 +78,12 @@ public class TestAppli {
         PersonnelCabine personnelCabine = new PersonnelCabine("Marie Curie", new Adresse(20, "Avenue des Champs", 75008, "Paris"), "0987654321", 102, java.time.LocalDate.of(2021, 5, 10), "Cabin Crew");
         Aeroport origine = new Aeroport("Charles de Gaulle", "Paris", "Aéroport principal");
         Aeroport destination = new Aeroport("JFK", "New York", "Aéroport international");
-        Vol vol = new Vol(123, origine, destination, 
-                java.time.LocalDateTime.parse("2025-04-10T10:00"), 
-                java.time.LocalDateTime.parse("2025-04-10T14:00"), 
+        Vol vol = new Vol(123, origine, destination,
+                java.time.LocalDateTime.parse("2025-04-10T10:00"),
+                java.time.LocalDateTime.parse("2025-04-10T14:00"),
                 "Planifié");
         pilote.affecterVol(vol);
-        personnelCabine.affecterVol(vol); // Utilise la méthode héritée de la classe Employe  
+        personnelCabine.affecterVol(vol); // Utilise la méthode héritée de la classe Employe
     }
 
     @Test
@@ -120,5 +120,66 @@ public class TestAppli {
         // Simuler la vérification de la disponibilité d'un avion
         boolean isAvailable = true;
         assertTrue(isAvailable, "L'avion doit être disponible pour l'affectation");
+    }
+
+    //nested test pour tester les fonctions et eviter de remetre les params
+    @Nested
+    class Test {
+        private Vol vol;
+        private Vol vol2;
+        private Reservation res;
+        private Reservation res2;
+        private Avion avion1;
+
+        @BeforeEach
+        void setUp() {
+            Adresse adresse = new Adresse(10, "Rue de Paris", 75000, "Paris");
+            Passager passager = new Passager( "fathi", adresse, "contact", "EU");
+
+            Aeroport origine = new Aeroport("Charles de Gaulle", "Paris", "Aéroport international");
+            Aeroport destination = new Aeroport("JFK", "New York", "Aéroport américain");
+
+
+            Employe e1 = new Employe(1, "Alice Dupont", adresse, "alice@aeroport.fr", 1001, LocalDate.of(2020, 5, 10));
+            Employe e2 = new Employe(2, "Bob Martin", adresse, "bob@aeroport.fr", 1002, LocalDate.of(2021, 3, 15));
+
+            vol = new Vol(787,origine,destination, LocalDateTime.of(2025, 5, 1, 14, 30), LocalDateTime.of(2025, 5, 1, 14, 30), "dispo" );
+            res = new Reservation(123,  LocalDate.parse("2025-04-04"), "dispo", vol, passager);
+            res2 = new Reservation(123,  LocalDate.parse("2025-04-04"), "confirmé", vol, passager);
+            vol2 = new Vol(787,origine,destination, null, null, "dispo" );
+
+            avion1 = new Avion("Airbus A350", "280", 25);
+            avion1.setVol(vol2);
+
+            res.confirmerReservation();
+            res2.annulerReservation();
+
+            avion1.affecterVol(vol);
+            System.out.println(vol.getAvion());
+
+            vol2.annulerVol();
+        }
+
+        @org.junit.jupiter.api.Test
+        public void testAnnulerVol(){
+            vol2.annulerVol();
+        }
+
+        @org.junit.jupiter.api.Test
+        public void testAffecterVol(){
+            avion1.affecterVol(vol);
+            System.out.println(vol.getAvion());
+        }
+
+        @org.junit.jupiter.api.Test
+        public void testConfirmerReservation() {
+            res.confirmerReservation();
+        }
+
+        @org.junit.jupiter.api.Test
+        public void testAnnulerReservation() {
+            res2.annulerReservation();
+        }
+
     }
 }
