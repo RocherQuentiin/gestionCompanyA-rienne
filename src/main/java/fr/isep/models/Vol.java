@@ -10,7 +10,9 @@ public class Vol {
     private String dateHeureDepart;
     private String dateHeureArrivee;
     private String etat;
-    private List<Passager> passagers;
+    private List<Personne> personnes;
+    private List<Reservation> reservations;
+    private Avion avion;
 
     public Vol(int numeroVol, Aeroport origine, Aeroport destination, String dateHeureDepart, String dateHeureArrivee, String etat) {
         this.numeroVol = numeroVol;
@@ -19,7 +21,8 @@ public class Vol {
         this.dateHeureDepart = dateHeureDepart;
         this.dateHeureArrivee = dateHeureArrivee;
         this.etat = etat;
-        this.passagers = new ArrayList<>();
+        this.personnes = new ArrayList<>();
+        this.reservations = new ArrayList<>();
     }
 
     public void planifierVol() {
@@ -86,12 +89,25 @@ public class Vol {
         this.etat = etat;
     }
 
-    public List<Passager> getPassagers() {
-        return passagers;
+    public List<Personne> getPersonnes() {
+        return personnes;
     }
 
-    public void setPassagers(List<Passager> passagers) {
-        this.passagers = passagers;
+    public void setPersonnes(List<Personne> personnes) {
+        this.personnes = personnes;
     }
 
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public Avion getAvion() {
+        return avion;
+    }
+    public void setAvion(Avion avion) {
+        this.avion = avion;
+    }
 }

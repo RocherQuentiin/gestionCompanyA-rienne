@@ -1,9 +1,13 @@
 package fr.isep.models;
 
+import java.util.List;
+
 public class Aeroport {
     private String nom;
     private String ville;
     private String description;
+    private List<Employe> employe;
+    private Vol vol;
 
     public Aeroport(String nom, String ville, String description) {
         this.nom = nom;
@@ -39,6 +43,20 @@ public class Aeroport {
         this.description = description;
     }
 
+   public List<Employe> getEmploye() {
+        return employe;
+   }
+
+   public void setEmploye(List<Employe> employee) {
+        this.employe = employe;
+   }
+
+   public Vol getVol() {
+        return vol;
+   }
+   public void setVol(Vol vol) {
+        this.vol = vol;
+   }
 
     @Override
     public String toString() {

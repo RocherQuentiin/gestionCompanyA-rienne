@@ -4,6 +4,7 @@ public class Avion {
     private String immatriculation;
     private String modele;
     private int capacite;
+    private Vol vol;
 
     public Avion(String immatriculation, String modele, int capacite) {
         this.immatriculation = immatriculation;
@@ -42,6 +43,13 @@ public class Avion {
 
     public void setCapacite(int capacite) {
         this.capacite = capacite;
+    }
+
+    public Vol getVol() {
+        return vol;
+    }
+    public void setVol(Vol vol) {
+        this.vol = vol;
     }
 
     @Override
