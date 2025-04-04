@@ -2,7 +2,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
-import fr.isep.models.*;
+
+import fr.isep.models.Adresse;
+import fr.isep.models.Passager;
+import fr.isep.models.PersonnelCabine;
+import fr.isep.models.Pilote;
 
 public class TestAppli {
 
@@ -17,8 +21,29 @@ public class TestAppli {
     @Test
     public void testObtenirRole() {
         // Simuler l'obtention du rôle d'un employé par ID
-        String role = "Pilote";
-        assertEquals("Pilote", role, "Le rôle retourné doit être 'Pilote'");
+        Adresse adresse = new Adresse(10, "Rue de Paris", 75000, "Paris");
+        Pilote pilote = new Pilote("Jean Dupont", adresse, "0123456789", 101, java.time.LocalDate.of(2020, 1, 15), "Captain", 4.5f);
+        assertEquals("PILOTE", pilote.obtenirRole(), "Le rôle retourné doit être 'PILOTE'");
+
+        Adresse adresse2 = new Adresse(20, "Avenue des Champs", 75008, "Paris");
+        PersonnelCabine personnelCabine = new PersonnelCabine("Marie Curie", adresse2, "0987654321", 102, java.time.LocalDate.of(2021, 5, 10), "Cabin Crew");
+        assertEquals("PERSONNEL_CABINE", personnelCabine.obtenirRole(), "Le rôle retourné doit être 'PERSONNEL_CABINE'");
+
+        Adresse adresse3 = new Adresse(30, "Boulevard Haussmann", 75009, "Paris");
+        Passager passager = new Passager("John Doe", adresse3, "0765432109", "AB123456");
+        assertEquals("PASSAGER", passager.obtenirRole(), "Le rôle retourné doit être 'PASSAGER'");
+
+        Adresse adresse5 = new Adresse(50, "Rue de la Paix", 75002, "Paris");
+        Passager passagerAvecRole = new Passager("Bob Martin", adresse5, "0123456789", "EF123456");
+        assertEquals("PASSAGER", passagerAvecRole.obtenirRole(), "Le rôle retourné doit être 'PASSAGER'");
+
+        // je suis sur qu'il n'est pas égale à "PILOTE"
+        assertNotNull(pilote, "Le pilote ne doit pas être null");
+        assertEquals("PILOTE", pilote.obtenirRole(), "Le rôle retourné doit être 'PILOTE'");
+        // je suis sur qu'il n'est pas égale à "PERSONNEL_CABINE"
+        assertNotNull(personnelCabine, "Le personnel de cabine ne doit pas être null");
+        assertEquals("PERSONNEL_CABINE", personnelCabine.obtenirRole(), "Le rôle retourné doit être 'PERSONNEL_CABINE'");
+        assertNotNull(passager, "Le passager ne doit pas être null");
     }
 
     @Test

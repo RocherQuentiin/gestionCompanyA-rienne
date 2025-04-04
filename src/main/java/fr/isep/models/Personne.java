@@ -1,5 +1,7 @@
 package fr.isep.models;
 
+import fr.isep.enums.Role;
+
 public class Personne {
     private int identifiant;
     private String nom;
@@ -14,7 +16,11 @@ public class Personne {
     }
 
     public void obtenirInfos() {
-        System.out.println("ID: " + identifiant + ", Nom: " + nom + ", Adresse: " + adresse + ", Contact: " + contact);
+        System.out.println("ID: " + identifiant + "\nRole: " + Role.fromId(identifiant).name()+ "\nNom: " + nom + "\nAdresse: " + adresse + "\nContact: " + contact + "\n\n");
+    }
+
+    public String obtenirRole() {
+        return Role.fromId(identifiant).name();
     }
 
     public int getIdentifiant() {
@@ -48,5 +54,4 @@ public class Personne {
     public void setContact(String contact) {
         this.contact = contact;
     }
-
 }

@@ -3,19 +3,21 @@ package fr.isep.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.isep.enums.Role;
+
 public class Passager extends Personne {
     private String passeport;
     private List<Reservation> reservations;
 
-    public Passager(int identifiant, String nom, Adresse adresse, String contact, String passeport) {
-        super(identifiant, nom, adresse, contact);
+        public Passager(String nom, Adresse adresse, String contact, String passeport) {
+        super(Role.PASSAGER.getId(), nom, adresse, contact); // Identifiant pour Passager
         this.passeport = passeport;
         this.reservations = new ArrayList<>();
     }
 
-    public void reserverVol(Reservation reservation) {
-        reservations.add(reservation);
-        System.out.println("Réservation ajoutée.");
+    @Override
+    public String obtenirRole() {
+        return Role.PASSAGER.name();
     }
 
     public void annulerReservation(int numeroReservation) {

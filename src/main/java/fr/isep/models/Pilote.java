@@ -2,19 +2,21 @@ package fr.isep.models;
 
 import java.time.LocalDate;
 
+import fr.isep.enums.Role;
+
 public class Pilote extends Employe {
     private String licence;
     private float heuresDeVol;
 
-    public Pilote(int identifiant, String nom, Adresse adresse, String contact, int numeroEmploye, LocalDate dateEmbauche, String licence, float heuresDeVol) {
-        super(identifiant, nom, adresse, contact, numeroEmploye, dateEmbauche);
+    public Pilote(String nom, Adresse adresse, String contact, int numeroEmploye, LocalDate dateEmbauche, String licence, float heuresDeVol) {
+        super(Role.PILOTE.getId(), nom, adresse, contact, numeroEmploye, dateEmbauche);
         this.licence = licence;
         this.heuresDeVol = heuresDeVol;
     }
 
     @Override
     public String obtenirRole() {
-        return "Pilote";
+        return Role.PILOTE.name();
     }
 
     public void affecterVol() {
