@@ -12,13 +12,23 @@ public class Avion {
         this.capacite = capacite;
     }
 
-    public void affecterVol() {
-        System.out.println("Vol affecté à l'avion.");
+    public void affecterVol(Vol vol) {
+        if (verifierDisponibilite(vol)){
+            vol.setAvion(this);
+            System.out.println("le vol a bien ete affecter");
+        }
+        else {
+            System.out.println("le vol n'est pas disponible");
+        }
     }
 
-    public boolean verifierDisponibilite() {
-        System.out.println("Disponibilité vérifiée.");
-        return true;
+    public boolean verifierDisponibilite(Vol vol) {
+        if (vol.getAvion() == null) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public String getImmatriculation() {

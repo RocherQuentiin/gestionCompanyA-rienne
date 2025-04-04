@@ -1,7 +1,10 @@
 package fr.isep.models;
 
 import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Vol {
@@ -26,16 +29,33 @@ public class Vol {
         this.reservations = new ArrayList<>();
     }
 
-    public void planifierVol() {
-        System.out.println("Vol planifié.");
+    public void planifierVol(int numeroVol, Aeroport origine, Aeroport destination, LocalDateTime dateHeureDepart, LocalDateTime dateHeureArrivee, String etat) {
+        this.numeroVol = numeroVol;
+        this.origine = origine;
+        this.destination = destination;
+        this.dateHeureDepart = dateHeureDepart;
+        this.dateHeureArrivee = dateHeureArrivee;
+        this.etat = etat;
     }
 
     public void annulerVol() {
-        System.out.println("Vol annulé.");
+        this.etat = "disponible";
+        this.reservations.clear();
+        this.personnes.clear();
+        System.out.println("Le vol est bien annulé");
     }
 
-    public void modifierVol() {
-        System.out.println("Vol modifié.");
+    public void modifierVol(Aeroport origine,Aeroport destination,  LocalDateTime DateHeureDepart, LocalDateTime DateHeureArrivee) {
+        this.origine = origine;
+        this.destination = destination;
+        this.dateHeureDepart = DateHeureDepart;
+        this.dateHeureArrivee = DateHeureArrivee;
+    }
+
+    public void listingPersonne() {
+        for (Personne personne : personnes) {
+            System.out.println(personne);
+        }
     }
 
     public int getNumeroVol() {

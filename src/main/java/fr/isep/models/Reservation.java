@@ -9,21 +9,36 @@ public class Reservation {
     private Vol vol;
     private Passager passager;
 
-    public Reservation(int numeroReservation, LocalDate dateReservation, String statut) {
+    public Reservation(int numeroReservation, LocalDate dateReservation, String statut, Vol vol, Passager passager) {
         this.numeroReservation = numeroReservation;
         this.dateReservation = dateReservation;
         this.statut = statut;
+        this.vol = vol;
+        this.passager = passager;
     }
 
     public void confirmerReservation() {
-        System.out.println("Réservation confirmée.");
+        if(this.statut != "confirmer") {
+            this.statut = "Confirmer";
+            this.vol.getReservations().add(this);
+            System.out.println("La reservation est confirmé");
+        }
+        else {
+            System.out.println("La reservation n'est plus disponible");
+        }
     }
 
     public void annulerReservation() {
-        System.out.println("Réservation annulée.");
+        if(this.statut == "confirmé") {
+            this.statut = "annuler";
+            this.vol.getReservations().remove(this);
+            this.passager.getReservations().remove(this);
+            System.out.println("Votre réservation a bien ete annuler");
+        }
     }
 
-    public void modifierReservation() {
+    public void modifierReservation(LocalDate dateReservation) {
+        this.dateReservation = dateReservation;
         System.out.println("Réservation modifiée.");
     }
 
