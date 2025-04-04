@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
 
         Adresse adresse = new Adresse(10, "Rue de Paris", 75000, "Paris");
-        Passager passager = new Passager(12, "fathi", adresse, "contact", "EU");
+        Passager passager = new Passager( "fathi", adresse, "contact", "EU");
 
         Aeroport origine = new Aeroport("Charles de Gaulle", "Paris", "Aéroport international");
         Aeroport destination = new Aeroport("JFK", "New York", "Aéroport américain");
@@ -41,7 +41,7 @@ public class Main {
 
         vol2.annulerVol();
 
-        Adresse adresse = new Adresse(10, "Rue de Paris", 75000, "Paris");
+        Adresse adresse2 = new Adresse(10, "Rue de Paris", 75000, "Paris");
 
         // Création d'un pilote
         Pilote pilote = new Pilote("Jean Dupont", adresse, "0123456789", 101, LocalDate.of(2020, 1, 15), "Captain", 4.5f);
@@ -52,7 +52,7 @@ public class Main {
         personnelCabine.obtenirInfos(); // Affichera : Métier: Personnel Cabine
 
         // Création d'un passager
-        Passager passager = new Passager("John Doe", adresse, "0765432109", "AB123456");
-        passager.obtenirInfos(); // Affichera : Métier: Passager
+        Passager passager1 = new Passager("John Doe", adresse2, "0765432109", "AB123456");
+        passager1.obtenirInfos(); // Affichera : Métier: Passager
     }
 }
