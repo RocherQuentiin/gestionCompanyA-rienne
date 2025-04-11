@@ -1,3 +1,4 @@
 nom;ville;description;employe;vol
 charle,grand aeroport,"Description of charle", "Employee 1, Employee 2", "Flight A"
 ORLY,aeroport Parisien,"Description of ORLY", "Employee 3, Employee 4", "Flight B"
+LYON;Lyon Saint-Exupéry;"Aéroport du sud-est";"Employee 5, Employee 6";"Flight C"

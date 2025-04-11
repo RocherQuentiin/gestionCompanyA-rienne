@@ -1,3 +1,8 @@
-nom,ville,description,employe,vol,immatriculation,modele,capacite
-charle,grand aeroport,"Description of charle", "Employee 1, Employee 2", "Flight A", "AB1234", "Boeing 737", 200
-ORLY,aeroport Parisien,"Description of ORLY", "Employee 3, Employee 4", "Flight B", "XY5678", "Airbus A320", 150
+immatriculation,modele,capacite
+CD5678,Airbus A320,150
+EF9012,Bombardier Q400,90
+GH3456,Embraer E190,100
+IJ7890,Boeing 777,300
+KL2468,Airbus A350,280
+MN4321,Boeing 747,350
+M41,Boeing 747,350
