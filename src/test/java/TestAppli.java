@@ -168,7 +168,7 @@ class NestedTest {
 
     @org.junit.jupiter.api.Test
     public void testAnnulerVol(){
-        vol2.annulerVol(123);
+        vol2.annulerVol();
     }
 
     @org.junit.jupiter.api.Test

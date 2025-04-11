@@ -35,7 +35,7 @@ public class Vol {
         this.etat = etat;
     }
 
-    public void annulerVol(int numeroVol) {
+    public void annulerVol() {
         this.etat = "annulé";
         this.reservations.clear();
         this.personnes.clear();

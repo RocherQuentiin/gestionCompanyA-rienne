@@ -13,7 +13,7 @@ public class ReadFile {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                data.add(line.split(";"));  // Sépare chaque ligne en un tableau de données
+                data.add(line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)"));
             }
         } catch (IOException e) {
             System.err.println("Erreur lors de la lecture du fichier : " + e.getMessage());
@@ -27,7 +27,7 @@ public class ReadFile {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (String[] row : data) {
-                writer.write(String.join(";", row));  // Convertit chaque ligne en une chaîne de texte
+                writer.write(String.join(";", row));
                 writer.newLine();
             }
             System.out.println("Le fichier a été mis à jour avec succès.");
