@@ -36,7 +36,7 @@ public class Vol {
     }
 
     public void annulerVol() {
-        this.etat = "disponible";
+        this.etat = "annulé";
         this.reservations.clear();
         this.personnes.clear();
         System.out.println("Le vol est bien annulé");

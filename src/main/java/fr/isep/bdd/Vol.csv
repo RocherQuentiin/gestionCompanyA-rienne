@@ -1,3 +1,5 @@
-numero, rue, codePostal, ville
-123, Main Street, 75001, Paris
-45, rue, 8561, Paris
+numeroVol;origine;destination;dateHeureDepart;dateHeureArrivee;etat
+123;Paris;New York;2025-04-15T10:30:00;2025-04-15T12:30:00;disponible
+124;Londres;Tokyo;2025-04-16T08:00:00;2025-04-16T12:00:00;disponible
+125;Rome;Berlin;2025-04-17T14:00:00;2025-04-17T16:00:00;annulé
+126;Madrid;Barcelone;2025-04-18T09:00:00;2025-04-18T10:30:00;disponible

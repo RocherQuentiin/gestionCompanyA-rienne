@@ -1,3 +1,6 @@
-nom,ville,description,employe,vol,immatriculation,modele,capacite,numeroEmploye,dateEmbauche,passeport,reservations
-charle,grand aeroport,"Description of charle","Employee 1 (ID 101), Employee 2 (ID 102)","Flight A", "AB1234", "Boeing 737", 200, 101, 2020-01-15,"P12345678","Reservation 1, Reservation 2"
-ORLY,aeroport Parisien,"Description of ORLY","Employee 3 (ID 103), Employee 4 (ID 104)","Flight B", "XY5678", "Airbus A320", 150, 103, 2021-05-20,"P87654321","Reservation 3, Reservation 4"
+id;nom;numeroRue;rue;codePostal;ville;contact;passeport
+1;Jean Dupont;12;Rue Lafayette;75009;Paris;jean.dupont@email.com;AA123456
+2;Marie Curie;5;Boulevard Haussmann;75008;Paris;marie.curie@email.com;BB654321
+3;Ahmed Benali;34;Avenue de la République;13001;Marseille;ahmed.benali@email.com;CC987654
+4;Laura Martin;78;Rue Nationale;69001;Lyon;laura.martin@email.com;DD432198
+5;Hugo Leroy;9;Place Bellecour;69002;Lyon;hugo.leroy@email.com;EE876543
