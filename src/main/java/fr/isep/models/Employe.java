@@ -39,14 +39,24 @@ public class Employe extends Personne {
 
     public void ajouterVol(Vol vol) {
         if (vol != null) {
-            volsAffectes.add(vol);
+            if (volsAffectes != null) {
+                volsAffectes.add(vol);
+            }
+            else {
+                volsAffectes = new ArrayList<>();
+                volsAffectes.add(vol);
+            }
         } else {
             System.out.println("Le vol ne peut pas être null.");
         }
     }
     
     public void supprimerVol(Vol vol) {
-        volsAffectes.remove(vol);
+        if (vol != null && volsAffectes != null) {
+            volsAffectes.remove(vol);
+        } else {
+            System.out.println("Le vol ne peut pas être null ou la liste des vols est null.");
+        }
     }
     public void afficherVolsAffectes() {
         System.out.println("Vols affectés à l'employé :");
