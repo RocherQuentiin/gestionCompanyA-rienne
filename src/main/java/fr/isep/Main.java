@@ -3,6 +3,7 @@ package fr.isep;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import fr.isep.file.ReadFile;
 import fr.isep.models.Adresse;
 import fr.isep.models.Aeroport;
 import fr.isep.models.Avion;
@@ -64,5 +65,15 @@ public class Main {
         pilote.obtenirVol();     // Affiche les vols affectés au pilote
         Passager passager1 = new Passager("John Doe", adresse2, "0765432109", "AB123456");
         passager1.obtenirInfos(); // Affichera : Métier: Passager
+
+        // Lecture d'un fichier
+        ReadFile readFile = new ReadFile();
+    String filePath = "Adresse.csv"; // Chemin du fichier à lire
+    try {
+        readFile.readFile(filePath);
+    } catch (Exception e) {
+        System.err.println("Erreur lors de la lecture du fichier : " + e.getMessage());
+    }
+        
     }
 }
