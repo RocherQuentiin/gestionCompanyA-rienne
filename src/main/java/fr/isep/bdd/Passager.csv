@@ -1,3 +1,6 @@
-nom,ville,description,employe,vol,immatriculation,modele,capacite,numeroEmploye,dateEmbauche,passeport,reservations
-charle,grand aeroport,"Description of charle","Employee 1 (ID 101), Employee 2 (ID 102)","Flight A", "AB1234", "Boeing 737", 200, 101, 2020-01-15,"P12345678","Reservation 1, Reservation 2"
-ORLY,aeroport Parisien,"Description of ORLY","Employee 3 (ID 103), Employee 4 (ID 104)","Flight B", "XY5678", "Airbus A320", 150, 103, 2021-05-20,"P87654321","Reservation 3, Reservation 4"
+nom,adresse,contact,passeport
+John Doe,10 Rue de Paris,0123456789,AB123456
+Jane Smith,20 Avenue des Champs,0987654321,CD789012
+Alice Johnson,30 Boulevard Haussmann,0765432109,EF456789
+Bob Martin,50 Rue de la Paix,0654321987,GH123890
+Emily Davis,60 Avenue Victor Hugo,0789456123,IJ567890

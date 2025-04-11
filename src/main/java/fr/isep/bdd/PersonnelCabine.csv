@@ -1,0 +1,3 @@
+nom,ville,description,employe,vol,immatriculation,modele,capacite,numeroEmploye,dateEmbauche,passeport,reservations,qualification,identifiant,nom,adresse,contact
+charle,grand aeroport,"Description of charle","Employee 1 (ID 101), Employee 2 (ID 102), Cabin Crew (ID 105)","Flight A", "AB1234", "Boeing 737", 200, 101, 2020-01-15,"P12345678","Reservation 1, Reservation 2","Safety Officer", 101, "Employee 1", "Address 1", "contact1@example.com"
+ORLY,aeroport Parisien,"Description of ORLY","Employee 3 (ID 103), Employee 4 (ID 104), Cabin Crew (ID 106)","Flight B", "XY5678", "Airbus A320", 150, 103, 2021-05-20,"P87654321","Reservation 3, Reservation 4","Flight Attendant", 103, "Employee 3", "Address 2", "contact2@example.com"
